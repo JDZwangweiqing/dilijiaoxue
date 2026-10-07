@@ -6,14 +6,22 @@
 <style>
 body{max-width:600px;margin:40px auto;padding:0 20px;font-size:18px;}
 a{display:block;margin:12px 0;color:#0066cc;}
-.corner-img{
+.corner-wrap{
   position: fixed;
   right: 16px;
   bottom: 16px;
+  text-align:center;
+  z-index:99;
+}
+.corner-img{
   width: 80px;
   height: auto;
   opacity:0.85;
-  z-index:99;
+}
+.txt-location{
+  font-size:14px;
+  color:#222;
+  margin-top:4px;
 }
 </style>
 </head>
@@ -26,6 +34,10 @@ a{display:block;margin:12px 0;color:#0066cc;}
 <a href="https://jdzwangweiqing.github.io/axial-precession/" target="_blank">5.地球岁差（进动）3D演示</a >
 <a href="https://jdzwangweiqing.github.io/sun-tracker/" target="_blank">6.太阳方位角移动速度演示</a >
 
-< img class="corner-img" src="logo.png" alt="右下角图片">
+<!--右下角印章+文字 江西·景德镇 -->
+<div class="corner-wrap">
+  < img class="corner-img" src="seal.jpg" alt="印章">
+  <div class="txt-location">江西·景德镇</div>
+</div>
 </body>
 </html>
