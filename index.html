@@ -1,39 +1,104 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<title>链接合集</title>
-<style>
-body{max-width:600px;margin:40px auto;padding:0 20px;font-size:18px;}
-a{display:block;margin:12px 0;color:#0066cc;}
-.corner-wrap{
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  text-align:center;
-  z-index:99;
-}
-.txt-location{
-  font-size:20px;
-  color:#222;
-  margin-top:4px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地理教学演示合集</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:"Microsoft Yahei",system-ui,sans-serif;
+        }
+        body{
+            background: linear-gradient(135deg, #0f2040, #204070);
+            min-height:100vh;
+            padding:40px 20px;
+        }
+        .container{
+            max-width:760px;
+            margin:0 auto;
+            background:rgba(255,255,255,0.95);
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 10px 40px rgba(0,0,0,0.3);
+        }
+       
+        .content{
+            padding:40px;
+        }
+        h1{
+            text-align:center;
+            color:#0f2040;
+            margin-bottom:16px;
+            font-size:2.3rem;
+        }
+        .desc{
+            text-align:center;
+            color:#44546a;
+            font-size:1.05rem;
+            line-height:1.6;
+            margin-bottom:36px;
+        }
+        ul{
+            list-style:none;
+        }
+        li{
+            margin:18px 0;
+        }
+        a{
+            display:block;
+            padding:18px 24px;
+            background:#2563a8;
+            color:#fff;
+            text-decoration:none;
+            border-radius:14px;
+            font-size:1.22rem;
+            transition:all 0.3s ease;
+        }
+        a:hover{
+            background:#1c4d80;
+            transform: translateY(-4px);
+            box-shadow:0 6px 16px rgba(37, 99, 168,0.4);
+        }
+        /* 右下角固定标识图片 */
+        .corner-img{
+            position:fixed;
+            right:26px;
+            bottom:26px;
+            width:130px;
+            opacity:0.88;
+        }
+        .corner-img:hover{
+            opacity:1;
+        }
+        footer{
+            text-align:center;
+            margin-top:40px;
+            color:#666;
+            font-size:0.9rem;
+        }
+    </style>
 </head>
 <body>
-<h2>地理教学演示合集</h2>
-<!-- 修改这里，href填网址，>后面写显示文字 -->
-<a href="https://jdzwangweiqing.github.io/circle-of-illumination/" target="_blank">1.地球昼夜与自转演示</a >
-<a href="https://jdzwangweiqing.github.io/daily-path/ " target="_blank">2.太阳视运动 · 天球演示</a >
-<a href="https://jdzwangweiqing.github.io/earth_rotate/" target="_blank">3.太阳直射点回归运动</a >
-<a href="https://jdzwangweiqing.github.io/obliquity-/" target="_blank">4.黄赤交角与五带变化</a >
-<a href="https://jdzwangweiqing.github.io/axial-precession/" target="_blank">5.地球岁差（进动）3D 演示</a >
-<a href="https://jdzwangweiqing.github.io/sun-tracker/" target="_blank">6.太阳方位角移动速度演示</a >
-<a href="https://jdzwangweiqing.github.io/moon-phase-/" target="_blank">7.月相原理 · 3D 演示</a >
-
-<!--右下角文字 江西·景德镇 -->
-<div class="corner-wrap">
-  
-  <div class="txt-location">江西·景德镇</div>
+    <div class="container">
+       
+        <div class="content">
+            <h1>地理教学演示合集</h1>
+            <p class="desc">本合集为高中地理动态可视化课件，适合课堂教学与自主学习。</p >
+            <ul>
+                <li><a href="https://jdzwangweiqing.github.io/circle-of-illumination/">🌍 1.地球昼夜与自转演示</a ></li>
+                <li><a href="https://jdzwangweiqing.github.io/daily-path/">☀️ 2.太阳视运动·天球演示</a ></li>
+                <li><a href="https://jdzwangweiqing.github.io/earth_rotate/">📈 3.太阳直射点回归运动</a ></li>
+                <li><a href="https://jdzwangweiqing.github.io/obliquity-/">🌐 4.黄赤交角与五带变化</a ></li>
+                <li><a href="https://jdzwangweiqing.github.io/axial-precession/">🌀 5.地球岁差（进动）3D演示</a ></li>
+                <li><a href="https://jdzwangweiqing.github.io/sun-tracker/">⏱️ 6.太阳方位角移动速度演示</a ></li>
+                <li><a href="https://jdzwangweiqing.github.io/moon-phase-/">🌙 7.月相原理·3D演示</a ></li>
+            </ul>
+        </div>
+    </div>
+   
+    <footer>© 地理教学演示工具 | 交互式地理可视化| 江西•景德镇</footer>
 </body>
 </html>
