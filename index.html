@@ -12,7 +12,7 @@
             font-family:"Microsoft Yahei",system-ui,sans-serif;
         }
         body{
-            background: linear-gradient(135deg, #f3f4f6, #f3f4f6);
+            background:linear-gradient(135deg,#f3f4f6,#f3f4f6);
             min-height:100vh;
             padding:40px 20px;
         }
@@ -24,7 +24,7 @@
             overflow:hidden;
             box-shadow:0 10px 40px rgba(0,0,0,0.3);
         }
-        /* 顶部横幅图片 */
+        /* 顶部横幅图片（有图片时取消注释 img 标签即可） */
         .banner{
             width:100%;
             height:220px;
@@ -46,14 +46,14 @@
             line-height:1.6;
             margin-bottom:36px;
         }
-        /* ====== 分类板块：水平分布（左右并排） ====== */
+
+        /* ====== 双列瀑布式布局：左右两列，列内分类纵向堆叠 ====== */
         .sections{
             display:grid;
             grid-template-columns:1fr 1fr;
             gap:24px 28px;
             align-items:start;
         }
-        /* 列容器：同一列内的多个分类纵向堆叠 */
         .col{
             display:flex;
             flex-direction:column;
@@ -65,7 +65,8 @@
             flex-direction:column;
             min-width:0;
         }
-        /* 分类标题栏（各列顶部，处于同一水平线） */
+
+        /* 分类标题栏 */
         .section-title{
             display:flex;
             align-items:center;
@@ -97,10 +98,7 @@
             opacity:0.75;
             flex-shrink:0;
         }
-        /* 占满整行的分类（项目较多或独立成段时使用） */
-        .section.wide{
-            grid-column:1 / -1;
-        }
+
         /* 待补充提示 */
         .empty-hint{
             padding:16px 18px;
@@ -111,6 +109,7 @@
             text-align:center;
             background:#f7f9fc;
         }
+
         ul{
             list-style:none;
         }
@@ -133,21 +132,25 @@
         }
         a:hover{
             background:#1c4d80;
-            transform: translateY(-4px);
-            box-shadow:0 6px 16px rgba(37, 99, 168,0.4);
+            transform:translateY(-4px);
+            box-shadow:0 6px 16px rgba(37,99,168,0.4);
         }
-        /* 中等屏幕：保持两列，间距收紧 */
+
+        /* 中等屏幕：两列保持，间距收紧 */
         @media (max-width:900px){
             .sections{gap:20px;}
+            .col{gap:22px;}
             .section-title{font-size:1.05rem;padding:11px 14px;}
         }
-        /* 窄屏：自动改为单列堆叠 */
+        /* 窄屏：单列堆叠 */
         @media (max-width:720px){
             .content{padding:26px 20px;}
             h1{font-size:1.8rem;}
             .sections{grid-template-columns:1fr;}
+            .col{gap:24px;}
             a{font-size:1rem;padding:14px 16px;}
         }
+
         /* 右下角固定标识图片 */
         .corner-img{
             position:fixed;
@@ -169,18 +172,23 @@
 </head>
 <body>
     <div class="container">
-       
+
         <div class="content">
             <h1>地理教学演示合集</h1>
             <p class="desc">本合集为高中地理动态可视化课件，适合课堂教学与自主学习。</p>
 
-            <!-- ========== 分类：水平并排 ========== -->
+            <!-- ================= 双列布局开始 ================= -->
             <div class="sections">
 
-                <!-- 左列：地球运动 -->
+                <!-- ---------- 左列 ---------- -->
                 <div class="col">
+
+                    <!-- 分类：地球运动 -->
                     <div class="section">
-                        <div class="section-title"><span class="name"><span class="icon">🌍</span>地球运动</span><span class="count">7 个演示</span></div>
+                        <div class="section-title">
+                            <span class="name"><span class="icon">🌍</span>地球运动</span>
+                            <span class="count">7 个演示</span>
+                        </div>
                         <ul>
                             <li><a href="https://jdzwangweiqing.github.io/circle-of-illumination/">🌍 1.地球昼夜与自转演示</a></li>
                             <li><a href="https://jdzwangweiqing.github.io/daily-path/">☀️ 2.太阳视运动·天球演示</a></li>
@@ -191,44 +199,63 @@
                             <li><a href="https://jdzwangweiqing.github.io/moon-phase-/">🌙 7.月相原理·3D演示</a></li>
                         </ul>
                     </div>
+
                 </div>
 
-                <!-- 右列：大气运动 → 地质构造 → 水圈运动（纵向堆叠） -->
+                <!-- ---------- 右列 ---------- -->
                 <div class="col">
+
+                    <!-- 分类：大气运动 -->
                     <div class="section">
-                        <div class="section-title"><span class="name"><span class="icon">💨</span>大气运动</span><span class="count">2 个演示</span></div>
+                        <div class="section-title">
+                            <span class="name"><span class="icon">💨</span>大气运动</span>
+                            <span class="count">3 个演示</span>
+                        </div>
                         <ul>
-                            <li><a href="https://jdzwangweiqing.github.io/thermal-circulation/">🔥 1.热力环流演示</a></li>
-                            <li><a href="https://jdzwangweiqing.github.io/tricellular-circulation/">💫 2.三圈环流演示</a></li>
+                            <li><a href="https://jdzwangweiqing.github.io/formation-of-wind/">🌬️ 1.风的形成演示</a></li>
+                            <li><a href="https://jdzwangweiqing.github.io/thermal-circulation/">🔥 2.热力环流演示</a></li>
+                            <li><a href="https://jdzwangweiqing.github.io/tricellular-circulation/">💫 3.三圈环流演示</a></li>
                         </ul>
                     </div>
 
+                    <!-- 分类：地质构造 -->
                     <div class="section">
-                        <div class="section-title"><span class="name"><span class="icon">⛰️</span>地质构造</span><span class="count">0 个演示</span></div>
+                        <div class="section-title">
+                            <span class="name"><span class="icon">⛰️</span>地质构造</span>
+                            <span class="count">0 个演示</span>
+                        </div>
                         <ul>
-                            <!-- 在此按需添加子项目，例如：
+                            <!-- 添加子项目示例：
                             <li><a href="链接地址">🏔️ 1.褶皱与断层演示</a ></li>
+                            <li><a href="链接地址">🪨 2.板块运动演示</a ></li>
                             -->
                         </ul>
                         <div class="empty-hint">内容整理中，可在此添加演示</div>
                     </div>
 
+                    <!-- 分类：水圈运动 -->
                     <div class="section">
-                        <div class="section-title"><span class="name"><span class="icon">💧</span>水圈运动</span><span class="count">0 个演示</span></div>
+                        <div class="section-title">
+                            <span class="name"><span class="icon">💧</span>水圈运动</span>
+                            <span class="count">0 个演示</span>
+                        </div>
                         <ul>
-                            <!-- 在此按需添加子项目，例如：
+                            <!-- 添加子项目示例：
                             <li><a href="链接地址">🌊 1.水循环演示</a ></li>
+                            <li><a href="链接地址">🌐 2.洋流分布演示</a ></li>
                             -->
                         </ul>
                         <div class="empty-hint">内容整理中，可在此添加演示</div>
                     </div>
+
                 </div>
 
             </div>
+            <!-- ================= 双列布局结束 ================= -->
 
         </div>
     </div>
-   
+
     <footer>© 地理教学演示工具 | 交互式地理可视化 | 江西•景德镇</footer>
 
 
