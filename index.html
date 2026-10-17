@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+<html lang="zh-CN"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>地理教学演示合集</title>
@@ -17,7 +17,7 @@
             padding:40px 20px;
         }
         .container{
-            max-width:760px;
+            max-width:960px;
             margin:0 auto;
             background:rgba(255,255,255,0.95);
             border-radius:20px;
@@ -46,26 +46,107 @@
             line-height:1.6;
             margin-bottom:36px;
         }
+        /* ====== 分类板块：水平分布（左右并排） ====== */
+        .sections{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:24px 28px;
+            align-items:start;
+        }
+        /* 列容器：同一列内的多个分类纵向堆叠 */
+        .col{
+            display:flex;
+            flex-direction:column;
+            gap:28px;
+            min-width:0;
+        }
+        .section{
+            display:flex;
+            flex-direction:column;
+            min-width:0;
+        }
+        /* 分类标题栏（各列顶部，处于同一水平线） */
+        .section-title{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:8px;
+            background:linear-gradient(90deg,#0f2040,#2563a8);
+            color:#fff;
+            padding:12px 18px;
+            border-radius:12px;
+            font-size:1.15rem;
+            font-weight:bold;
+            letter-spacing:1px;
+            margin-bottom:16px;
+            white-space:nowrap;
+        }
+        .section-title .name{
+            display:flex;
+            align-items:center;
+            gap:8px;
+            min-width:0;
+        }
+        .section-title .icon{
+            font-size:1.25rem;
+        }
+        /* 分类小计 */
+        .section-title .count{
+            font-size:0.8rem;
+            font-weight:normal;
+            opacity:0.75;
+            flex-shrink:0;
+        }
+        /* 占满整行的分类（项目较多或独立成段时使用） */
+        .section.wide{
+            grid-column:1 / -1;
+        }
+        /* 待补充提示 */
+        .empty-hint{
+            padding:16px 18px;
+            border:1px dashed #c3cddb;
+            border-radius:12px;
+            color:#8a97a8;
+            font-size:0.95rem;
+            text-align:center;
+            background:#f7f9fc;
+        }
         ul{
             list-style:none;
         }
         li{
-            margin:18px 0;
+            margin:12px 0;
+        }
+        li:first-child{
+            margin-top:0;
         }
         a{
             display:block;
-            padding:18px 24px;
+            padding:16px 20px;
             background:#2563a8;
             color:#fff;
             text-decoration:none;
             border-radius:14px;
-            font-size:1.22rem;
+            font-size:1.06rem;
+            line-height:1.45;
             transition:all 0.3s ease;
         }
         a:hover{
             background:#1c4d80;
             transform: translateY(-4px);
             box-shadow:0 6px 16px rgba(37, 99, 168,0.4);
+        }
+        /* 中等屏幕：保持两列，间距收紧 */
+        @media (max-width:900px){
+            .sections{gap:20px;}
+            .section-title{font-size:1.05rem;padding:11px 14px;}
+        }
+        /* 窄屏：自动改为单列堆叠 */
+        @media (max-width:720px){
+            .content{padding:26px 20px;}
+            h1{font-size:1.8rem;}
+            .sections{grid-template-columns:1fr;}
+            a{font-size:1rem;padding:14px 16px;}
         }
         /* 右下角固定标识图片 */
         .corner-img{
@@ -91,21 +172,64 @@
        
         <div class="content">
             <h1>地理教学演示合集</h1>
-            <p class="desc">本合集为高中地理动态可视化课件，适合课堂教学与自主学习。</p >
-            <ul>
-                <li><a href="https://jdzwangweiqing.github.io/circle-of-illumination/">🌍 1.地球昼夜与自转演示</a ></li>
-                <li><a href="https://jdzwangweiqing.github.io/daily-path/">☀️ 2.太阳视运动·天球演示</a ></li>
-                <li><a href="https://jdzwangweiqing.github.io/earth_rotate/">📈 3.太阳直射点回归运动</a ></li>
-                <li><a href="https://jdzwangweiqing.github.io/obliquity-/">🪐 4.黄赤交角与五带变化</a ></li>
-                <li><a href="https://jdzwangweiqing.github.io/axial-precession/">🌀 5.地球岁差（进动）3D演示</a ></li>
-                <li><a href="https://jdzwangweiqing.github.io/sun-tracker/">⏱️ 6.太阳方位角移动速度演示</a ></li>
-                <li><a href="https://jdzwangweiqing.github.io/moon-phase-/">🌙 7.月相原理·3D演示</a ></li>
-               <li><a href="https://jdzwangweiqing.github.io/thermal-circulation/">🔥 8.热力环流演示</a ></li>
-               <li><a href="https://jdzwangweiqing.github.io/tricellular-circulation/">💫 9.三圈环流演示</a ></li>
-            </ul>
+            <p class="desc">本合集为高中地理动态可视化课件，适合课堂教学与自主学习。</p>
+
+            <!-- ========== 分类：水平并排 ========== -->
+            <div class="sections">
+
+                <!-- 左列：地球运动 -->
+                <div class="col">
+                    <div class="section">
+                        <div class="section-title"><span class="name"><span class="icon">🌍</span>地球运动</span><span class="count">7 个演示</span></div>
+                        <ul>
+                            <li><a href="https://jdzwangweiqing.github.io/circle-of-illumination/">🌍 1.地球昼夜与自转演示</a></li>
+                            <li><a href="https://jdzwangweiqing.github.io/daily-path/">☀️ 2.太阳视运动·天球演示</a></li>
+                            <li><a href="https://jdzwangweiqing.github.io/earth_rotate/">📈 3.太阳直射点回归运动</a></li>
+                            <li><a href="https://jdzwangweiqing.github.io/obliquity-/">🪐 4.黄赤交角与五带变化</a></li>
+                            <li><a href="https://jdzwangweiqing.github.io/axial-precession/">🌀 5.地球岁差（进动）3D演示</a></li>
+                            <li><a href="https://jdzwangweiqing.github.io/sun-tracker/">⏱️ 6.太阳方位角移动速度演示</a></li>
+                            <li><a href="https://jdzwangweiqing.github.io/moon-phase-/">🌙 7.月相原理·3D演示</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 右列：大气运动 → 地质构造 → 水圈运动（纵向堆叠） -->
+                <div class="col">
+                    <div class="section">
+                        <div class="section-title"><span class="name"><span class="icon">💨</span>大气运动</span><span class="count">2 个演示</span></div>
+                        <ul>
+                            <li><a href="https://jdzwangweiqing.github.io/thermal-circulation/">🔥 1.热力环流演示</a></li>
+                            <li><a href="https://jdzwangweiqing.github.io/tricellular-circulation/">💫 2.三圈环流演示</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title"><span class="name"><span class="icon">⛰️</span>地质构造</span><span class="count">0 个演示</span></div>
+                        <ul>
+                            <!-- 在此按需添加子项目，例如：
+                            <li><a href="链接地址">🏔️ 1.褶皱与断层演示</a ></li>
+                            -->
+                        </ul>
+                        <div class="empty-hint">内容整理中，可在此添加演示</div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title"><span class="name"><span class="icon">💧</span>水圈运动</span><span class="count">0 个演示</span></div>
+                        <ul>
+                            <!-- 在此按需添加子项目，例如：
+                            <li><a href="链接地址">🌊 1.水循环演示</a ></li>
+                            -->
+                        </ul>
+                        <div class="empty-hint">内容整理中，可在此添加演示</div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
    
     <footer>© 地理教学演示工具 | 交互式地理可视化 | 江西•景德镇</footer>
-</body>
-</html>
+
+
+</body></html>
