@@ -12,17 +12,22 @@
             font-family:"Microsoft Yahei",system-ui,sans-serif;
         }
         body{
-            background:linear-gradient(135deg,#f3f4f6,#f3f4f6);
+            background:
+                radial-gradient(circle at 12% 8%, rgba(34,184,207,0.10) 0%, transparent 34%),
+                radial-gradient(circle at 88% 12%, rgba(167,139,250,0.10) 0%, transparent 34%),
+                radial-gradient(circle at 80% 92%, rgba(59,130,246,0.10) 0%, transparent 38%),
+                radial-gradient(circle at 18% 90%, rgba(245,158,11,0.10) 0%, transparent 38%),
+                linear-gradient(135deg,#fdf6ee 0%,#f8ecdc 55%,#f3e2c8 100%);
             min-height:100vh;
             padding:40px 20px;
         }
         .container{
-            max-width:1020px;
+            max-width:1160px;
             margin:0 auto;
-            background:rgba(255,255,255,0.95);
+            background:rgba(255,253,250,0.96);
             border-radius:20px;
             overflow:hidden;
-            box-shadow:0 10px 40px rgba(0,0,0,0.3);
+            box-shadow:0 10px 40px rgba(146,84,14,0.18);
         }
         /* 顶部横幅图片（需要时插入 <img class="banner" src="...">） */
         .banner{
@@ -31,26 +36,65 @@
             object-fit:cover;
         }
         .content{
-            padding:40px;
+            padding:40px 40px 0;
         }
         h1{
             text-align:center;
-            color:#0f2040;
+            color:#8a4108;
             margin-bottom:16px;
             font-size:2.3rem;
         }
         .desc{
             text-align:center;
-            color:#44546a;
+            color:#a1754d;
             font-size:1.05rem;
             line-height:1.6;
-            margin-bottom:36px;
+            margin-bottom:1em; /* 距页面底部边缘约1个字符 */
+            margin-top:1.5em; /* 向下移动约1.5个字符 */
         }
 
-        /* ====== 双列瀑布式布局：左右两列，列内分类纵向堆叠 ====== */
+        /* 标题下四色装饰条，对应四个分类 */
+        .title-accent{
+            display:flex;
+            gap:10px;
+            justify-content:center;
+            margin-bottom:38px;
+        }
+        .title-accent span{
+            width:52px;
+            height:7px;
+            border-radius:4px;
+        }
+        .title-accent .c1{background:linear-gradient(90deg,#0e7490,#22b8cf);}
+        .title-accent .c2{background:linear-gradient(90deg,#6d28d9,#a78bfa);}
+        .title-accent .c3{background:linear-gradient(90deg,#c2410c,#f59e0b);}
+        .title-accent .c4{background:linear-gradient(90deg,#1d4ed8,#60a5fa);}
+
+        /* ====== 各分类专属配色 ====== */
+        /* 地球运动：青蓝 */
+        .sec-earth .section-title{background:linear-gradient(90deg,#0e7490,#22b8cf);}
+        .sec-earth a{background:#f0fbfd;color:#155e75;border-color:#bae6fd;box-shadow:0 2px 6px rgba(14,116,144,0.10);}
+        .sec-earth a:hover{background:#dcf3fa;color:#0e5468;border-color:#7dd3fc;box-shadow:0 6px 16px rgba(14,116,144,0.28);}
+
+        /* 大气运动：紫 */
+        .sec-air .section-title{background:linear-gradient(90deg,#6d28d9,#a78bfa);}
+        .sec-air a{background:#f7f4fe;color:#5b21b6;border-color:#e3d9fb;box-shadow:0 2px 6px rgba(109,40,217,0.10);}
+        .sec-air a:hover{background:#ece3fc;color:#4c1d95;border-color:#c4b5fd;box-shadow:0 6px 16px rgba(109,40,217,0.28);}
+
+        /* 地质构造与地貌：橙 */
+        .sec-geo .section-title{background:linear-gradient(90deg,#c2410c,#f59e0b);}
+        .sec-geo a{background:#fff5e8;color:#7c4a1e;border-color:#f3ddc0;box-shadow:0 2px 6px rgba(197,124,45,0.10);}
+        .sec-geo a:hover{background:#fde8cf;color:#6b3a12;border-color:#eeb877;box-shadow:0 6px 16px rgba(197,124,45,0.28);}
+
+        /* 水圈与水的运动：蓝 */
+        .sec-water .section-title{background:linear-gradient(90deg,#1d4ed8,#60a5fa);}
+        .sec-water a{background:#f0f6ff;color:#1e3a8a;border-color:#cfe1fd;box-shadow:0 2px 6px rgba(29,78,216,0.10);}
+        .sec-water a:hover{background:#dcE9fd;color:#1e3a8a;border-color:#93c5fd;box-shadow:0 6px 16px rgba(29,78,216,0.28);}
+
+        /* ====== 四列布局：每个分类独占一列 ====== */
         .sections{
             display:grid;
-            grid-template-columns:repeat(3,1fr);
+            grid-template-columns:repeat(4,1fr);
             gap:24px 26px;
             align-items:start;
         }
@@ -66,20 +110,20 @@
             min-width:0;
         }
 
-        /* 分类标题栏 */
+        /* 分类标题栏（向两侧各扩展4px，整体比列宽多约0.5个字符） */
         .section-title{
             display:flex;
             align-items:center;
             justify-content:space-between;
             gap:8px;
-            background:linear-gradient(90deg,#0f2040,#2563a8);
+            background:linear-gradient(90deg,#c05621,#e8833a);
             color:#fff;
             padding:12px 18px;
             border-radius:12px;
             font-size:1.15rem;
             font-weight:bold;
             letter-spacing:1px;
-            margin-bottom:16px;
+            margin:0 -4px 16px;
             white-space:nowrap;
         }
         .section-title .name{
@@ -91,23 +135,16 @@
         .section-title .icon{
             font-size:1.25rem;
         }
-        /* 分类小计 */
-        .section-title .count{
-            font-size:0.8rem;
-            font-weight:normal;
-            opacity:0.75;
-            flex-shrink:0;
-        }
 
         /* 待补充提示 */
         .empty-hint{
             padding:16px 18px;
-            border:1px dashed #c3cddb;
+            border:1px dashed #e3c39a;
             border-radius:12px;
-            color:#8a97a8;
+            color:#b08c60;
             font-size:0.95rem;
             text-align:center;
-            background:#f7f9fc;
+            background:#fdf8f0;
         }
 
         ul{
@@ -122,21 +159,29 @@
         a{
             display:block;
             padding:16px 20px;
-            background:#2563a8;
-            color:#fff;
+            background:#fff5e8;
+            color:#7c4a1e;
             text-decoration:none;
             border-radius:14px;
+            border:1px solid #f3ddc0;
+            box-shadow:0 2px 6px rgba(197,124,45,0.10);
             font-size:1.06rem;
             line-height:1.45;
+            margin:0 -4px; /* 向两侧各扩展4px */
             transition:all 0.3s ease;
         }
         a:hover{
-            background:#1c4d80;
+            background:#fde8cf;
+            color:#6b3a12;
+            border-color:#eeb877;
             transform:translateY(-4px);
-            box-shadow:0 6px 16px rgba(37,99,168,0.4);
+            box-shadow:0 6px 16px rgba(197,124,45,0.28);
         }
 
-        /* 中等屏幕：两列保持，间距收紧 */
+        /* 中等屏幕：两列，间距收紧 */
+        @media (max-width:1100px){
+            .sections{grid-template-columns:repeat(2,1fr);}
+        }
         @media (max-width:900px){
             .sections{gap:20px;}
             .col{gap:22px;}
@@ -165,8 +210,9 @@
         footer{
             text-align:center;
             margin-top:40px;
-            color:#666;
-            font-size:0.9rem;
+            color:#000;
+            font-size:1.05rem;
+            font-weight:bold;
         }
     </style>
 </head>
@@ -175,19 +221,19 @@
 
         <div class="content">
             <h1>地理教学演示合集</h1>
-            <p class="desc">本合集为高中地理动态可视化课件，适合课堂教学与自主学习。</p>
+            <div class="title-accent" aria-hidden="true"><span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c4"></span></div>
 
-            <!-- ================= 双列布局开始 ================= -->
+            <!-- ================= 四列布局开始 ================= -->
             <div class="sections">
 
                 <!-- ---------- 左列 ---------- -->
                 <div class="col">
 
                     <!-- 分类：地球运动 -->
-                    <div class="section">
+                    <div class="section sec-earth">
                         <div class="section-title">
                             <span class="name"><span class="icon">🌍</span>地球运动</span>
-                            <span class="count">8 个演示</span>
+
                         </div>
                         <ul>
                             <li><a href="https://jdzwangweiqing.github.io/circle-of-illumination/">🌍 1.地球昼夜与自转演示</a></li>
@@ -203,14 +249,14 @@
 
                 </div>
 
-                <!-- ---------- 右列 ---------- -->
+                <!-- ---------- 第二列：大气运动 ---------- -->
                 <div class="col">
 
                     <!-- 分类：大气运动 -->
-                    <div class="section">
+                    <div class="section sec-air">
                         <div class="section-title">
                             <span class="name"><span class="icon">💨</span>大气运动</span>
-                            <span class="count">4 个演示</span>
+
                         </div>
                         <ul>
                             <li><a href="https://jdzwangweiqing.github.io/formation-of-wind/">🌬️ 1.风的形成演示</a></li>
@@ -220,11 +266,16 @@
                         </ul>
                     </div>
 
+                </div>
+
+                <!-- ---------- 第三列：地质构造与地貌 ---------- -->
+                <div class="col">
+
                     <!-- 分类：地质构造与地貌 -->
-                    <div class="section">
+                    <div class="section sec-geo">
                         <div class="section-title">
                             <span class="name"><span class="icon">⛰️</span>地质构造与地貌</span>
-                            <span class="count">4 个演示</span>
+
                         </div>
                         <ul>
                             <li><a href="https://jdzwangweiqing.github.io/-fold-formation-/">🏔️ 1.褶皱形成过程演示</a></li>
@@ -237,16 +288,14 @@
                         </ul>
                     </div>
 
-                    <!-- 分类：水圈与水的运动 -->
-
                 </div>
 
-                <!-- ---------- 第三列：水圈与水的运动 ---------- -->
+                <!-- ---------- 第四列：水圈与水的运动 ---------- -->
                 <div class="col">
-                    <div class="section">
+                    <div class="section sec-water">
                         <div class="section-title">
                             <span class="name"><span class="icon">💧</span>水圈与水的运动</span>
-                            <span class="count">3 个演示</span>
+
                         </div>
                         <ul>
                             <li><a href="https://jdzwangweiqing.github.io/-Distribution-of-properties-of-seawater/">🌊 1.全球海水温度·盐度·密度分布</a></li>
@@ -260,7 +309,9 @@
                 </div>
 
             </div>
-            <!-- ================= 双列布局结束 ================= -->
+            <!-- ================= 四列布局结束 ================= -->
+
+            <p class="desc">本合集为高中地理动态可视化课件，适合课堂教学与自主学习。</p>
 
         </div>
     </div>
