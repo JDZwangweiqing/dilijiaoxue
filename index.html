@@ -22,7 +22,7 @@
             padding:40px 20px;
         }
         .container{
-            max-width:1160px;
+            max-width:1280px;
             margin:0 auto;
             background:rgba(255,253,250,0.96);
             border-radius:20px;
@@ -91,10 +91,10 @@
         .sec-water a{background:#f0f6ff;color:#1e3a8a;border-color:#cfe1fd;box-shadow:0 2px 6px rgba(29,78,216,0.10);}
         .sec-water a:hover{background:#dcE9fd;color:#1e3a8a;border-color:#93c5fd;box-shadow:0 6px 16px rgba(29,78,216,0.28);}
 
-        /* ====== 四列布局：每个分类独占一列 ====== */
+        /* ====== 布局：每个分类独占一列，地球运动占两列宽 ====== */
         .sections{
             display:grid;
-            grid-template-columns:repeat(4,1fr);
+            grid-template-columns:repeat(5,1fr);
             gap:24px 26px;
             align-items:start;
         }
@@ -103,6 +103,20 @@
             flex-direction:column;
             gap:28px;
             min-width:0;
+        }
+        /* 宽列：占两个栅格单位 */
+        .col-wide{
+            grid-column:span 2;
+        }
+        /* 宽列内的列表分两列排布 */
+        .col-wide ul{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:12px 14px;
+            align-content:start;
+        }
+        .col-wide li{
+            margin:0;
         }
         .section{
             display:flex;
@@ -181,6 +195,7 @@
         /* 中等屏幕：两列，间距收紧 */
         @media (max-width:1100px){
             .sections{grid-template-columns:repeat(2,1fr);}
+            .col-wide{grid-column:span 2;}
         }
         @media (max-width:900px){
             .sections{gap:20px;}
@@ -193,6 +208,8 @@
             h1{font-size:1.8rem;}
             .sections{grid-template-columns:1fr;}
             .col{gap:24px;}
+            .col-wide{grid-column:auto;}
+            .col-wide ul{grid-template-columns:1fr;gap:12px 0;}
             a{font-size:1rem;padding:14px 16px;}
         }
 
@@ -226,8 +243,8 @@
             <!-- ================= 四列布局开始 ================= -->
             <div class="sections">
 
-                <!-- ---------- 左列 ---------- -->
-                <div class="col">
+                <!-- ---------- 左列（地球运动，占两列宽） ---------- -->
+                <div class="col col-wide">
 
                     <!-- 分类：地球运动 -->
                     <div class="section sec-earth">
@@ -244,6 +261,7 @@
                             <li><a href="https://jdzwangweiqing.github.io/sun-tracker/">⏱️ 6.太阳方位角移动速度演示</a></li>
                             <li><a href="https://jdzwangweiqing.github.io/moon-phase-/">🌙 7.月相原理·3D演示</a></li>
                             <li><a href="https://jdzwangweiqing.github.io/sundial/">🕰️ 8.日晷系列</a></li>
+                            <li><a href="https://jdzwangweiqing.github.io/diurnal-circle-of-a-star/">⭐ 9.恒星出没</a></li>
                         </ul>
                     </div>
 
